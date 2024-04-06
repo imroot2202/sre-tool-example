@@ -1,4 +1,4 @@
-o install and use the CLI tool, follow these instructions:
+install and use the CLI tool, follow these instructions:
 
 Step 1: Save the Script
 Save the bash script provided in the previous response to a file, for example sre.sh.
