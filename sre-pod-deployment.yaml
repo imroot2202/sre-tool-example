@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sre-tool
+  namespace: artem
+  labels:
+    app: sre-tool
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sre-tool
+  template:
+    metadata:
+      labels:
+        app: sre-tool
+    spec:
+      priorityClassName: artem-buggy-pod-high-priority
+      containers:
+      - name: sre
+        image: ghcr.io/imroot2202/sre-cli:0.0.1
+        command: ["./sre.sh"]
+        args: ["--help"]  # Default argument to display help
