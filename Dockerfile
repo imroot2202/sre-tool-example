@@ -1,17 +1,9 @@
-# Use a base image with kubectl installed
-FROM alpine:latest
+FROM gcr.io/google.com/cloudsdktool/cloud-sdk
 
-# Install kubectl
-RUN apk add --no-cache curl
+COPY sre.sh /usr/src/app/sre.sh
 
-# Set the working directory in the container
 WORKDIR /usr/src/app
 
-# Copy the script into the container
-COPY sre.sh .
-
-# Make the script executable
 RUN chmod +x sre.sh
 
-# Define the entry point for the container
-ENTRYPOINT ["./sre.sh"]
+CMD ["/usr/src/app/sre.sh"]
