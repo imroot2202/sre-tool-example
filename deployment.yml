@@ -18,6 +18,6 @@ spec:
       priorityClassName: artem-buggy-pod-high-priority
       containers:
       - name: sre
-        image: ghcr.io/imroot2202/sre-cli:0.0.1
-        command: ["./sre.sh"]
-        args: ["--help"]  # Default argument to display help
+        image: ghcr.io/imroot2202/sre-cli:0.0.4
+        command: ["/bin/sh"]
+        args: ["-c", "echo 'Please run your command here' && sleep infinity"]
