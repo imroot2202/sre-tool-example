@@ -1,0 +1,10 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: artem-pdb
+  namespace: artem
+spec:
+  minAvailable: 2 # Adjust as needed to fit your requirements
+  selector:
+    matchLabels:
+      app: buggy-pod-nginx # Label selector to match your Pod
