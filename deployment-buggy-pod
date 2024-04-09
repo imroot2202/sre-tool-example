@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: buggy-pod
+  namespace: artem
+  labels:
+    app: buggy-pod-nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: buggy-pod-nginx
+  template:
+    metadata:
+      labels:
+        app: buggy-pod-nginx
+    spec:
+      priorityClassName: artem-buggy-pod-high-priority
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - name: http
+          containerPort: 80
+        imagePullPolicy: IfNotPresent
